@@ -6,7 +6,7 @@ services:
       - 127.0.0.1:53:53    #So na rede principal
     volumes:
       - ./dnsserver/named.conf.options:/etc/bind/named.conf.options
-      - ./dnsserver/db.starwars.ian:/etc/bind/db.starwars.ian
+      - ./dnsserver/db.starwars.lan:/etc/bind/db.starwars.lan
       - ./dnsserver/db.20.168.192.in-addr.arpa:/etc/bind/db.20.168.192.in-addr.arpa
       - ./dnsserver/named.conf.local:/etc/bind/named.conf.local
     networks:

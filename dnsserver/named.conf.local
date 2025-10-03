@@ -1,6 +1,6 @@
-zone "starwars.ian" {
+zone "starwars.lan" {
     type master;
-    file "/etc/bind/db.starwars.ian";
+    file "/etc/bind/db.starwars.lan";
 };
 zone "20.168.192.in-addr.arpa" {
     type master;

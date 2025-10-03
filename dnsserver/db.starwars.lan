@@ -1,0 +1,28 @@
+$TTL    86400
+@       IN      SOA     ns1.starwars.lan. admin.starwars.lan. (
+                        2025100101  ; Serial
+                        3600        ; Refresh
+                        1800        ; Retry
+                        604800      ; Expire
+                        86400       ; Minimum
+                        )
+        IN      NS      ns1.starwars.lan.
+        IN      NS      ns2.starwars.lan.
+
+ns1     IN      A       192.168.20.10
+ns2     IN      A       192.168.20.11
+darthvader   IN      A       192.168.20.20
+skywalker   IN      A       192.168.20.101
+skywalker   IN      A       192.168.20.111
+luke   IN      A       192.168.20.22
+darthsidious   IN      A        192.168.20.101
+yoda    IN      A       192.168.20.25
+yoda    IN      A       192.168.20.24
+leia    IN      A       192.168.20.22
+han     IN      A       192.168.20.23
+c3p0     IN      A       192.168.20.26
+jedi    IN      CNAME   yoda.starwars.lan.
+palpatine       IN      CNAME   darthsidious.starwars.lan.
+sith    IN      CNAME   darthvader.starwars.lan.
+        IN      MX      10 mail.starwars.lan.
+mail    IN      A       192.168.20.30

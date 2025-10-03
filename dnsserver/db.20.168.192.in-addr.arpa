@@ -1,19 +1,24 @@
 $TTL    86400
-@       IN      SOA     ns1.starwars.ian. admin.starwars.ian. (
+@       IN      SOA     ns1.starwars.lan. admin.starwars.lan. (
                         2025100101  ; Serial
                         3600        ; Refresh
                         1800        ; Retry
                         604800      ; Expire
                         86400       ; Minimum
                         )
-        IN      NS      ns1.starwars.ian.
-        IN      NS      ns2.starwars.ian.
+        IN      NS      ns1.starwars.lan.
+        IN      NS      ns2.starwars.lan.
 
-; PTR records - zona inversa
-10      IN      PTR     ns1.starwars.ian.
-11      IN      PTR     ns2.starwars.ian.
-20      IN      PTR     vader.starwars.ian.
-21      IN      PTR     yoda.starwars.ian.
-22      IN      PTR     leia.starwars.ian.
-23      IN      PTR     han.starwars.ian.
-30      IN      PTR     mail.starwars.ian.
+10      IN      PTR     ns1.starwars.lan.
+11      IN      PTR     ns2.starwars.lan.
+20      IN      PTR     darthvader.starwars.lan.
+22      IN      PTR     luke.starwars.lan.
+22      IN      PTR     leia.starwars.lan.
+23      IN      PTR     han.starwars.lan.
+24      IN      PTR     yoda.starwars.lan.
+25      IN      PTR     yoda.starwars.lan.
+26      IN      PTR     c3p0.starwars.lan.
+30      IN      PTR     mail.starwars.lan.
+101     IN      PTR     skywalker.starwars.lan.
+101     IN      PTR     darthsidious.starwars.lan.
+111     IN      PTR     skywalker.starwars.lan.

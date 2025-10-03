@@ -1,12 +1,9 @@
 FROM debian:13
 
-RUN apt update  && apt install -y \
-    procps \
-    iproute2 \
-    iputils-ping \
-    bind9utils \
-    dnsutils \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y procps iproute2 dnsutils iputils-ping && \
+    rm -rf /var/lib/apt/lists/*
 
-
-CMD ["tail", "-f", "/dev/null"]
+RUN mkdir -p /kk
+CMD [ "tail", "-f", "/dev/null" ]
