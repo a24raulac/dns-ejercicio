@@ -1,0 +1,19 @@
+$TTL    86400
+@       IN      SOA     ns1.starwars.ian. admin.starwars.ian. (
+                        2025100101  ; Serial
+                        3600        ; Refresh
+                        1800        ; Retry
+                        604800      ; Expire
+                        86400       ; Minimum
+                        )
+        IN      NS      ns1.starwars.ian.
+        IN      NS      ns2.starwars.ian.
+
+; PTR records - zona inversa
+10      IN      PTR     ns1.starwars.ian.
+11      IN      PTR     ns2.starwars.ian.
+20      IN      PTR     vader.starwars.ian.
+21      IN      PTR     yoda.starwars.ian.
+22      IN      PTR     leia.starwars.ian.
+23      IN      PTR     han.starwars.ian.
+30      IN      PTR     mail.starwars.ian.

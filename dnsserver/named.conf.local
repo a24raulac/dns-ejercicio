@@ -1,0 +1,8 @@
+zone "starwars.ian" {
+    type master;
+    file "/etc/bind/db.starwars.ian";
+};
+zone "20.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.20.168.192.in-addr.arpa";
+};
