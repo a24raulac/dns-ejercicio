@@ -6,8 +6,9 @@ $TTL    86400
                         604800      ; Expire
                         86400       ; Minimum
                         )
-        IN      NS      ns1.starwars.lan.
-        IN      NS      ns2.starwars.lan.
+@        IN      NS      ns1.starwars.lan.
+@        IN      NS      ns2.starwars.lan.
+@        IN      A       127.0.0.1
 
 ns1     IN      A       192.168.20.10
 ns2     IN      A       192.168.20.11
@@ -27,3 +28,5 @@ sith    IN      CNAME   darthvader.starwars.lan.
 
 @        IN      MX      10 mail.starwars.lan.
 mail    IN      A       192.168.20.30
+
+lenda   IN      TXT     "Que a forza te acompanhe"
