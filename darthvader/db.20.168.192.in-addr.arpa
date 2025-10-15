@@ -1,6 +1,6 @@
 $TTL    86400
 @       IN      SOA     ns1.starwars.lan. admin.starwars.lan. (
-                        2025100101  ; Serial
+                        2025100103  ; Serial
                         3600        ; Refresh
                         1800        ; Retry
                         604800      ; Expire
@@ -17,6 +17,7 @@ $TTL    86400
 23      IN      PTR     han.starwars.lan.
 25      IN      PTR     yoda.starwars.lan.
 26      IN      PTR     c3p0.starwars.lan.
+28      IN      PTR     chewbacca.starwars.lan.
 30      IN      PTR     mail.starwars.lan.
 101     IN      PTR     skywalker.starwars.lan.
 101     IN      PTR     darthsidious.starwars.lan. ; Igual que antes, solo uno será válido

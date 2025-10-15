@@ -16,6 +16,6 @@ zone "starwars.lan" {
 // Zona inversa para la red 192.168.20.0/24
 zone "20.168.192.in-addr.arpa" {
     type slave;
-    file "db.20.168.192";
+    file "db.20.168.192.in-addr.arpa";
     masters { 192.168.20.10; };
 };

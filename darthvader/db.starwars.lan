@@ -1,32 +1,40 @@
-$TTL    86400
-@       IN      SOA     ns1.starwars.lan. admin.starwars.lan. (
-                        2025100101  ; Serial
-                        3600        ; Refresh
-                        1800        ; Retry
-                        604800      ; Expire
-                        86400       ; Minimum
+;
+; Archivo de zona para starwars.lan.
+;
+$TTL    86400   ; TTL por defecto para todos los registros (1 día)
+$ORIGIN starwars.lan.
+
+; Registro SOA (Start of Authority)
+@       IN      SOA     darthvader.starwars.lan. admin.starwars.lan. (
+                        3              ; Serial (AAAAMMDDNN)
+                        3600           ; Refresh (1 hora)
+                        1800           ; Retry (30 minutos)
+                        1209600        ; Expire (2 semanas)
+                        86400          ; Negative Cache TTL (1 día)
                         )
-@        IN      NS      ns1.starwars.lan.
-@        IN      NS      ns2.starwars.lan.
-@        IN      A       127.0.0.1
 
-ns1     IN      A       192.168.20.10
-ns2     IN      A       192.168.20.11
+; Registro NS (Name Server)
+@       IN      NS      darthvader.starwars.lan.
+@       IN      NS      darthsidious.starwars.lan.
 
-darthvader   IN      A       192.168.20.20
+; Registros A
+@           IN      A       192.168.20.10
+darthvader  IN      A       192.168.20.10
 skywalker   IN      A       192.168.20.101
-luke   IN      A       192.168.20.22
-darthsidious   IN      A       192.168.20.101
-yoda    IN      A       192.168.20.25
-leia    IN      A       192.168.20.22
-han     IN      A       192.168.20.23
-c3p0     IN      A       192.168.20.26
+skywalker   IN      A       192.168.20.111
+luke        IN      A       192.168.20.22
+darthsidious    IN      A       192.168.20.11
+yoda        IN      A       192.168.20.24
+yoda        IN      A       192.168.20.25
+c3p0        IN      A       192.168.20.26
+chewbacca        IN      A       192.168.20.28
 
-jedi    IN      CNAME   yoda.starwars.lan.
-palpatine    IN      CNAME   darthsidious.starwars.lan.
-sith    IN      CNAME   darthvader.starwars.lan.
 
-@        IN      MX      10 mail.starwars.lan.
-mail    IN      A       192.168.20.30
+; Registro MX (Mail Exchange)
+@       IN      MX      10 c3p0.starwars.lan.
 
-lenda   IN      TXT     "Que a forza te acompanhe"
+; Registro TXT
+lenda       IN      TXT     "Que a forza te acompanhe"
+
+; Registro CNAME
+palpatine   IN      CNAME   darthsidious.starwars.lan.
