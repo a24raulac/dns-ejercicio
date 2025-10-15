@@ -6,11 +6,15 @@
 // organization
 // include "/etc/bind/zones.rfc1918";
 
+key "transfer-key" {
+	algorithm hmac-sha256;
+	secret "rFqCzTlO3IcQiBCtoaRPeW6U0yuQptjUCAzLxAWWeX4=";
+};
 // Zona directa para starwars.lan
 zone "starwars.lan" {
     type master;
     file "/etc/bind/db.starwars.lan";
-    allow-transfer { 192.168.20.11; };
+    allow-transfer { key "transfer-key"; };
 };
 
 // Zona inversa para la red 192.168.20.0/24

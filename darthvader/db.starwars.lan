@@ -28,6 +28,7 @@ yoda        IN      A       192.168.20.24
 yoda        IN      A       192.168.20.25
 c3p0        IN      A       192.168.20.26
 chewbacca        IN      A       192.168.20.28
+rd2d2        IN      A       192.168.20.29
 
 
 ; Registro MX (Mail Exchange)
