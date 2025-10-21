@@ -1,0 +1,37 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+key "transfer-key" {
+	algorithm hmac-sha256;
+	secret "rFqCzTlO3IcQiBCtoaRPeW6U0yuQptjUCAzLxAWWeX4=";
+};
+
+server 192.168.20.10{
+    keys {"transfer-key";};
+};
+
+// Zona directa para starwars.lan
+zone "starwars.lan" {
+    type slave;
+    file "db.starwars.lan";
+    masters { 192.168.20.10; };
+};
+
+zone "academia.jedi" {
+    type slave;
+    file "/var/cache/bind/db.academia";
+    masters {192.168.20.130;};
+    allow-transfer { 192.168.20.130;};
+};
+
+// Zona inversa para la red 192.168.20.0/24
+zone "20.168.192.in-addr.arpa" {
+    type slave;
+    file "db.20.168.192.in-addr.arpa";
+    masters { 192.168.20.10; };
+};

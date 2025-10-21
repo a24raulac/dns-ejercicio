@@ -20,6 +20,15 @@ services:
     volumes:
       - ./darthsidious/named.conf.local:/etc/bind/named.conf.local
       - ./darthsidious/named.conf.options:/etc/bind/named.conf.options
+    hansolo:
+      build: dnsserver
+      hostname: hansolo
+      depends_on:
+        - darthvader
+      volumes:
+        - ./hansolo/named.conf.local:/etc/bind/named.conf.local
+        - ./hansolo/named.conf.options:/etc/bind/named.conf.options
+
 
     networks:
       rededns:
