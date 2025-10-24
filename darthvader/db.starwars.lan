@@ -1,22 +1,23 @@
 $TTL 86400
 @   IN  SOA ns1.starwars.lan. admin.starwars.lan. (
-        2025102403 ; serial
-        3600
-        1800
-        604800
-        86400
+        2025102401 ; serial YYYYMMDDnn
+        3600       ; refresh
+        1800       ; retry
+        604800     ; expire
+        86400      ; minimum
 )
 ;
 @       IN  NS  ns1.starwars.lan.
-@       IN  NS  ns2.starwars.lan.
 
+; Nameserver (ns1 é o propio darthvader)
 ns1     IN  A   192.168.20.1
-ns2     IN  A   192.168.20.2
 
-; Delegación del subdominio antigarepublica.starwars.lan
-antigarepublica    IN  NS  ns1.antigarepublica.starwars.lan.
-antigarepublica    IN  NS  ns2.antigarepublica.starwars.lan.
+; Hosts do dominio pai
+darthvader      IN  A   192.168.20.1
+www             IN  A   192.168.20.10
 
-; Resto de hosts de starwars.lan (ejemplos)
-darthvader      IN  A   192.168.20.10
-skywalker       IN  A   192.168.20.11
+; Delegación do subdominio antigarepublica.starwars.lan
+antigarepublica        IN  NS  ns1.antigarepublica.starwars.lan.
+
+; Glue para o nameserver do subdominio (ns1.antigarepublica está no mesmo host)
+ns1.antigarepublica.starwars.lan.    IN  A   192.168.20.1

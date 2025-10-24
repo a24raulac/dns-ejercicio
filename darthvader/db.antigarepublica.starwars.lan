@@ -1,6 +1,6 @@
 $TTL 86400
 @   IN  SOA ns1.antigarepublica.starwars.lan. admin.antigarepublica.starwars.lan. (
-        2025102401 ; serial
+        2025102401 ; serial YYYYMMDDnn
         3600
         1800
         604800
@@ -8,11 +8,10 @@ $TTL 86400
 )
 ;
 @       IN  NS  ns1.antigarepublica.starwars.lan.
-@       IN  NS  ns2.antigarepublica.starwars.lan.
 
-; Los mismos A que pusiste como glue en la zona padre
+; nameserver do subdominio (coincide co glue da zona pai)
 ns1     IN  A   192.168.20.1
-ns2     IN  A   192.168.20.2
-xendor     IN  A   192.168.20.222
-ardenlyn     IN  A   192.168.20.223
 
+; Rexistros solicitados
+xendor   IN  A   192.168.20.222
+ardenlyn IN  A   192.168.20.223
