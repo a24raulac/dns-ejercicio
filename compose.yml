@@ -32,6 +32,7 @@ services:
     volumes:
       - ./hansolo/named.conf.local:/etc/bind/named.conf.local
       - ./hansolo/named.conf.options:/etc/bind/named.conf.options
+      - ./hansolo/db.consello.academia.jedi:/etc/bind/db.consello.academia.jedi
     networks:
         rededns:
           ipv4_address: 192.168.20.12
