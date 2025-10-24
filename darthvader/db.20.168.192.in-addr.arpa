@@ -1,23 +1,30 @@
-$TTL    86400
-@       IN      SOA     ns1.starwars.lan. admin.starwars.lan. (
-                        2025100103  ; Serial
-                        3600        ; Refresh
-                        1800        ; Retry
-                        604800      ; Expire
-                        86400       ; Minimum
-                        )
-        IN      NS      ns1.starwars.lan.
-        IN      NS      ns2.starwars.lan.
+;
+; Archivo de zona inversa para la red 192.168.20.0/24
+; Zona: 20.168.192.in-addr.arpa
+;
+$TTL    86400   ; TTL por defecto para todos los registros (1 día)
+$ORIGIN 20.168.192.in-addr.arpa.
 
-10      IN      PTR     ns1.starwars.lan.
-11      IN      PTR     ns2.starwars.lan.
-20      IN      PTR     darthvader.starwars.lan.
+; Registro SOA (Start of Authority)
+@       IN      SOA     ns1.starwars.lan. admin.starwars.lan. (
+                        2              ; Serial (AAAAMMDDNN)
+                        3600           ; Refresh (1 hora)
+                        1800           ; Retry (30 minutos)
+                        1209600        ; Expire (2 semanas)
+                        86400          ; Negative Cache TTL (1 día)
+                        )
+
+; Registro NS (Name Server)
+@       IN      NS      darthsidious.starwars.lan.
+
+; Registros PTR (Pointer Records) para resolución inversa
+10      IN      PTR     darthvader.starwars.lan.
+101     IN      PTR     skywalker.starwars.lan.
+111     IN      PTR     skywalker.starwars.lan.
 22      IN      PTR     luke.starwars.lan.
-22      IN      PTR     leia.starwars.lan.   ; Dos nombres, pero solo uno será válido (generalmente el primero)
-23      IN      PTR     han.starwars.lan.
+11      IN      PTR     darthsidious.starwars.lan.
+24      IN      PTR     yoda.starwars.lan.
 25      IN      PTR     yoda.starwars.lan.
 26      IN      PTR     c3p0.starwars.lan.
 28      IN      PTR     chewbacca.starwars.lan.
-30      IN      PTR     mail.starwars.lan.
-101     IN      PTR     skywalker.starwars.lan.
-101     IN      PTR     darthsidious.starwars.lan. ; Igual que antes, solo uno será válido
+29      IN      PTR     r2d2.starwars.lan.

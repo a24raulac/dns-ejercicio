@@ -4,10 +4,18 @@
 
 // Consider adding the 1918 zones here, if they are not used in your
 // organization
-//include "/etc/bind/zones.rfc1918";
+// include "/etc/bind/zones.rfc1918";
 
+// Zona directa para consello.academia.jedi
 zone "consello.academia.jedi" {
     type master;
     file "/etc/bind/db.consello.academia.jedi";
-    allow-transfer {192.168.20.103; };
+    allow-transfer { 192.168.20.101; };
+};
+
+// Zona directa para imperio.starwars.lan
+zone "imperio.starwars.lan" {
+    type master;
+    file "/etc/bind/db.imperio.starwars.lan";
+    allow-transfer { 192.168.20.10; };
 };

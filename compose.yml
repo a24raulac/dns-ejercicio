@@ -1,4 +1,5 @@
 services:
+# Servidor darthvader (Principal)
   darthvader:
     build: dnsserver
     hostname: darthvader
@@ -8,11 +9,11 @@ services:
       - ./darthvader/named.conf.options:/etc/bind/named.conf.options
       - ./darthvader/named.conf.local:/etc/bind/named.conf.local
       - ./darthvader/db.starwars.lan:/etc/bind/db.starwars.lan
-      - ./darthvader/db.antigarepublica.starwars.lan:/etc/bind/db.antigarepublica.starwars.lan
       - ./darthvader/db.20.168.192.in-addr.arpa:/etc/bind/db.20.168.192.in-addr.arpa
     networks:
       rededns:
         ipv4_address: 192.168.20.10
+# Servidor darthsidious (Secundario)
   darthsidious:
     build: dnsserver
     hostname: darthsidious
@@ -24,27 +25,28 @@ services:
     networks:
       rededns:
         ipv4_address: 192.168.20.11
-
+# Servidor hansolo (Subdominio)
   hansolo:
     build: dnsserver
     hostname: hansolo
-    depends_on:
-      - darthvader
     volumes:
-      - ./hansolo/named.conf.local:/etc/bind/named.conf.local
       - ./hansolo/named.conf.options:/etc/bind/named.conf.options
+      - ./hansolo/named.conf.local:/etc/bind/named.conf.local
       - ./hansolo/db.consello.academia.jedi:/etc/bind/db.consello.academia.jedi
+      - ./hansolo/db.imperio.starwars.lan:/etc/bind/db.imperio.starwars.lan
     networks:
-        rededns:
-          ipv4_address: 192.168.20.12
+      rededns:
+        ipv4_address: 192.168.20.105
+# Cliente
   cliente:
     build: cliente
     hostname: cliente
     networks:
       rededns:
-        ipv4_address: 192.168.20.101
+        ipv4_address: 192.168.20.111
     dns:
       - 192.168.20.10
+
 networks:
   rededns:
     ipam:

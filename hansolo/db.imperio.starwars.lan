@@ -1,11 +1,11 @@
 ;
-; Archivo de zona para consello.academia.jedi.
+; Archivo de zona para imperio.starwars.lan.
 ;
 $TTL    86400   ; TTL por defecto para todos los registros (1 día)
-$ORIGIN consello.academia.jedi.
+$ORIGIN imperio.starwars.lan.
 
 ; Registro SOA (Start of Authority)
-@       IN      SOA     hansolo.consello.academia.jedi. admin.consello.academia.jedi. (
+@       IN      SOA     hansolo.imperio.starwars.lan. admin.imperio.starwars.lan. (
                         2              ; Serial (AAAAMMDDNN)
                         3600           ; Refresh (1 hora)
                         1800           ; Retry (30 minutos)
@@ -14,10 +14,10 @@ $ORIGIN consello.academia.jedi.
                         )
 
 ; Registro NS (Name Server)
-@       IN      NS      hansolo.consello.academia.jedi.
+@       IN      NS      hansolo.imperio.starwars.lan.
 
 ; Registros A
 @           IN      A       192.168.20.105
 hansolo     IN      A       192.168.20.105
-yaddle      IN      A       192.168.20.215
-yaraelpoof  IN      A       192.168.20.216
+tsuichoi    IN      A       192.168.20.225
+bultarswan  IN      A       192.168.20.226

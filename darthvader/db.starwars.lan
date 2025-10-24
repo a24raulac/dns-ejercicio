@@ -1,23 +1,49 @@
-$TTL 86400
-@   IN  SOA ns1.starwars.lan. admin.starwars.lan. (
-        2025102401 ; serial YYYYMMDDnn
-        3600       ; refresh
-        1800       ; retry
-        604800     ; expire
-        86400      ; minimum
-)
 ;
-@       IN  NS  ns1.starwars.lan.
+; Archivo de zona para starwars.lan.
+;
+$TTL    86400   ; TTL por defecto para todos los registros (1 día)
+$ORIGIN starwars.lan.
 
-; Nameserver (ns1 é o propio darthvader)
-ns1     IN  A   192.168.20.1
+; Registro SOA (Start of Authority)
+@       IN      SOA     darthvader.starwars.lan. admin.starwars.lan. (
+                        2              ; Serial (AAAAMMDDNN)
+                        3600           ; Refresh (1 hora)
+                        1800           ; Retry (30 minutos)
+                        1209600        ; Expire (2 semanas)
+                        86400          ; Negative Cache TTL (1 día)
+                        )
 
-; Hosts do dominio pai
-darthvader      IN  A   192.168.20.1
-www             IN  A   192.168.20.10
+; Registro NS (Name Server)
+@       IN      NS      darthvader.starwars.lan.
+@       IN      NS      darthsidious.starwars.lan.
 
-; Delegación do subdominio antigarepublica.starwars.lan
-antigarepublica        IN  NS  ns1.antigarepublica.starwars.lan.
+; Registros A
+@           IN      A       192.168.20.10
+darthvader  IN      A       192.168.20.10
+skywalker   IN      A       192.168.20.101
+skywalker   IN      A       192.168.20.111
+luke        IN      A       192.168.20.22
+darthsidious    IN      A       192.168.20.11
+yoda        IN      A       192.168.20.24
+yoda        IN      A       192.168.20.25
+c3p0        IN      A       192.168.20.26
+chewbacca   IN      A       192.168.20.28
+r2d2        IN      A       192.168.20.29
 
-; Glue para o nameserver do subdominio (ns1.antigarepublica está no mesmo host)
-ns1.antigarepublica.starwars.lan.    IN  A   192.168.20.1
+; Registro MX (Mail Exchange)
+@       IN      MX      10 c3po.starwars.lan.
+
+; Registro TXT
+lenda       IN      TXT     "Que a forza te acompanhe"
+
+; Registro CNAME
+palpatine   IN      CNAME   darthsidious.starwars.lan.
+
+; Delegación del subdominio imperio
+imperio     IN      NS      hansolo.imperio.starwars.lan.
+hansolo.imperio IN      A       192.168.20.105
+
+; Subdominio antigarepublica
+$ORIGIN antigarepublica.starwars.lan.
+xendor      IN      A       192.168.20.222
+ardenlyn    IN      A       192.168.20.223

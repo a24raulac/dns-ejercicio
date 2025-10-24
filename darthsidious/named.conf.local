@@ -6,13 +6,14 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+// Clave de transferencia
 key "transfer-key" {
-	algorithm hmac-sha256;
-	secret "rFqCzTlO3IcQiBCtoaRPeW6U0yuQptjUCAzLxAWWeX4=";
+        algorithm hmac-sha256;
+        secret "60El5kUbYV6u+QUT0CkTq1o9S1S9UeYlpuR0EEPrLQA=";
 };
 
-server 192.168.20.10{
-    keys {"transfer-key";};
+server 192.168.20.10 {  // IP do primario
+    keys { "transfer-key"; };
 };
 
 // Zona directa para starwars.lan
@@ -22,16 +23,16 @@ zone "starwars.lan" {
     masters { 192.168.20.10; };
 };
 
-zone "academia.jedi" {
-    type slave;
-    file "/var/cache/bind/db.academia";
-    masters {192.168.20.130;};
-    allow-transfer { 192.168.20.130;};
-};
-
 // Zona inversa para la red 192.168.20.0/24
 zone "20.168.192.in-addr.arpa" {
     type slave;
-    file "db.20.168.192.in-addr.arpa";
+    file "db.20.168.192";
     masters { 192.168.20.10; };
+};
+
+// Zona directa para academia.jedi
+zone "academia.jedi" {
+    type slave;
+    file "db.academia.jedi";
+    masters { 192.168.20.101; };
 };
