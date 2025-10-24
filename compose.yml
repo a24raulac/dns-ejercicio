@@ -33,7 +33,6 @@ services:
       - ./hansolo/named.conf.options:/etc/bind/named.conf.options
       - ./hansolo/named.conf.local:/etc/bind/named.conf.local
       - ./hansolo/db.consello.academia.jedi:/etc/bind/db.consello.academia.jedi
-      - ./hansolo/db.imperio.starwars.lan:/etc/bind/db.imperio.starwars.lan
     networks:
       rededns:
         ipv4_address: 192.168.20.105
