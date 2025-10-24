@@ -18,6 +18,14 @@ zone "starwars.lan" {
                          192.168.20.103;};
 };
 
+//zona del subdominio
+zone "antigarepublica" {
+    type master;
+    file "/etc/bind/db.antigarepublica.starwars.lan";
+    allow-transfer { key "transfer-key";
+                         192.168.20.103;};
+};
+
 
 // Zona inversa para la red 192.168.20.0/24
 zone "20.168.192.in-addr.arpa" {

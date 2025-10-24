@@ -1,41 +1,22 @@
+$TTL 86400
+@   IN  SOA ns1.starwars.lan. admin.starwars.lan. (
+        2025102403 ; serial
+        3600
+        1800
+        604800
+        86400
+)
 ;
-; Archivo de zona para starwars.lan.
-;
-$TTL    86400   ; TTL por defecto para todos los registros (1 día)
-$ORIGIN starwars.lan.
+@       IN  NS  ns1.starwars.lan.
+@       IN  NS  ns2.starwars.lan.
 
-; Registro SOA (Start of Authority)
-@       IN      SOA     darthvader.starwars.lan. admin.starwars.lan. (
-                        3              ; Serial (AAAAMMDDNN)
-                        3600           ; Refresh (1 hora)
-                        1800           ; Retry (30 minutos)
-                        1209600        ; Expire (2 semanas)
-                        86400          ; Negative Cache TTL (1 día)
-                        )
+ns1     IN  A   192.168.20.1
+ns2     IN  A   192.168.20.2
 
-; Registro NS (Name Server)
-@       IN      NS      darthvader.starwars.lan.
-@       IN      NS      darthsidious.starwars.lan.
+; Delegación del subdominio antigarepublica.starwars.lan
+antigarepublica    IN  NS  ns1.antigarepublica.starwars.lan.
+antigarepublica    IN  NS  ns2.antigarepublica.starwars.lan.
 
-; Registros A
-@           IN      A       192.168.20.10
-darthvader  IN      A       192.168.20.10
-skywalker   IN      A       192.168.20.101
-skywalker   IN      A       192.168.20.111
-luke        IN      A       192.168.20.22
-darthsidious    IN      A       192.168.20.11
-yoda        IN      A       192.168.20.24
-yoda        IN      A       192.168.20.25
-c3p0        IN      A       192.168.20.26
-chewbacca        IN      A       192.168.20.28
-rd2d2        IN      A       192.168.20.29
-
-
-; Registro MX (Mail Exchange)
-@       IN      MX      10 c3p0.starwars.lan.
-
-; Registro TXT
-lenda       IN      TXT     "Que a forza te acompanhe"
-
-; Registro CNAME
-palpatine   IN      CNAME   darthsidious.starwars.lan.
+; Resto de hosts de starwars.lan (ejemplos)
+darthvader      IN  A   192.168.20.10
+skywalker       IN  A   192.168.20.11

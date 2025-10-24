@@ -1,0 +1,18 @@
+$TTL 86400
+@   IN  SOA ns1.antigarepublica.starwars.lan. admin.antigarepublica.starwars.lan. (
+        2025102401 ; serial
+        3600
+        1800
+        604800
+        86400
+)
+;
+@       IN  NS  ns1.antigarepublica.starwars.lan.
+@       IN  NS  ns2.antigarepublica.starwars.lan.
+
+; Los mismos A que pusiste como glue en la zona padre
+ns1     IN  A   192.168.20.1
+ns2     IN  A   192.168.20.2
+xendor     IN  A   192.168.20.222
+ardenlyn     IN  A   192.168.20.223
+
