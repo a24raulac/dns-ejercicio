@@ -10,6 +10,8 @@ services:
       - ./darthvader/named.conf.local:/etc/bind/named.conf.local
       - ./darthvader/db.starwars.lan:/etc/bind/db.starwars.lan
       - ./darthvader/db.20.168.192.in-addr.arpa:/etc/bind/db.20.168.192.in-addr.arpa
+      - ./darthvader/bind/queries.log:/var/log/bind/queries.log
+      - ./darthvader/bind/updates.log:/var/log/bind/updates.log
     networks:
       rededns:
         ipv4_address: 192.168.20.10

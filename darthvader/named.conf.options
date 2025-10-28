@@ -6,3 +6,25 @@ options {
 	// 	// Renviador 9.9.9.9 para asegurarnos que si no funciona el 8.8.8.8 tengamos uno
 	// };	
 };
+
+
+logging {
+    channel query_log {
+        file "/var/log/bind/queries.log" versions 5 size 50m;
+        severity dynamic;
+        print-time yes;
+        print-severity yes;
+        print-category yes;
+    };
+
+    channel update_log {
+        file "/var/log/bind/updates.log" versions 5 size 20m;
+        severity dynamic;
+        print-time yes;
+        print-severity yes;
+        print-category yes;
+    };
+
+    category queries { query_log; };
+    category updates { update_log; };
+};
