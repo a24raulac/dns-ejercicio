@@ -5,6 +5,7 @@ services:
     hostname: darthvader
     ports:
       - 127.0.0.1:53:53    #So na rede principal
+    command: -f -4
     volumes:
       - ./darthvader/named.conf.options:/etc/bind/named.conf.options
       - ./darthvader/named.conf.local:/etc/bind/named.conf.local

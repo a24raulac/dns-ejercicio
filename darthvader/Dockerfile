@@ -16,14 +16,16 @@ RUN mkdir -p /dns
 COPY entrypoint.sh /dns/entrypoint.sh
 RUN chmod a+x /dns/entrypoint.sh
 RUN mkdir -p /var/log/bind
-RUN touch /var/log/bind/query.log
+RUN touch /var/log/bind/queries.log
+RUN touch /var/log/bind/updates.log
 RUN chown bind /var/log/bind -R
 RUN chmod 777 /var/log/bind -R
 RUN chmod 777 /var/log/bind/queries.log
+RUN chmod 777 /var/log/bind/updates.log
 EXPOSE 53
 # USER bind
 WORKDIR /var/cache/bind
 
-CMD ["-4"]
+CMD ["-g","-4"]
 
 ENTRYPOINT ["/dns/entrypoint.sh"]
