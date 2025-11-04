@@ -12,7 +12,10 @@ services:
       - ./darthvader/db.starwars.lan:/etc/bind/db.starwars.lan
       - ./darthvader/db.20.168.192.in-addr.arpa:/etc/bind/db.20.168.192.in-addr.arpa
       - ./darthvader/bind/queries.log:/var/log/bind/queries.log
-      - ./darthvader/bind/updates.log:/var/log/bind/updates.log
+      - ./darthvader/bind/xfer-in.log:/var/log/bind/xfer-in.log
+      - ./darthvader/bind/xfer-out.log:/var/log/bind/xfer-out.log
+      - ./darthvader/named.conf:/etc/bind/named.conf
+      - ./darthvader/rndc.key:/etc/bind/rdnc.conf
     networks:
       rededns:
         ipv4_address: 192.168.20.10
@@ -25,6 +28,8 @@ services:
     volumes:
       - ./darthsidious/named.conf.local:/etc/bind/named.conf.local
       - ./darthsidious/named.conf.options:/etc/bind/named.conf.options
+      - ./darthsidious/named.conf:/etc/bind/named.conf
+      - ./darthsidious/rndc.key:/etc/bind/rdnc.conf
     networks:
       rededns:
         ipv4_address: 192.168.20.11

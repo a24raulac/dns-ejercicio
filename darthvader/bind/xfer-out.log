@@ -1,0 +1,6 @@
+client @0x7e9311c5e000 192.168.20.11#34543/key transfer-key (starwars.lan): transfer of 'starwars.lan/IN': AXFR started: TSIG transfer-key (serial 3)
+client @0x7e9311c5e000 192.168.20.11#34543/key transfer-key (starwars.lan): transfer of 'starwars.lan/IN': AXFR ended: 1 messages, 22 records, 670 bytes, 0.001 secs (670000 bytes/sec) (serial 3)
+client @0x70ee049ed000 192.168.20.11#37191 (starwars.lan): transfer of 'starwars.lan/IN': AXFR started (serial 3)
+client @0x70ee049ed000 192.168.20.11#37191 (starwars.lan): transfer of 'starwars.lan/IN': AXFR ended: 1 messages, 22 records, 613 bytes, 0.001 secs (613000 bytes/sec) (serial 3)
+client @0x75e797c42000 192.168.20.11#33491/key transfer-key (starwars.lan): transfer of 'starwars.lan/IN': AXFR started: TSIG transfer-key (serial 3)
+client @0x75e797c42000 192.168.20.11#33491/key transfer-key (starwars.lan): transfer of 'starwars.lan/IN': AXFR ended: 1 messages, 22 records, 670 bytes, 0.001 secs (670000 bytes/sec) (serial 3)

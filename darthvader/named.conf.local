@@ -12,13 +12,17 @@ key "transfer-key" {
         secret "60El5kUbYV6u+QUT0CkTq1o9S1S9UeYlpuR0EEPrLQA=";
 };
 
+
 // Zona directa para starwars.lan
 zone "starwars.lan" {
     type master;
     file "/etc/bind/db.starwars.lan";
     allow-transfer { key "transfer-key";
     192.168.20.102;
-    192.168.20.105; };
+    192.168.20.105;
+    192.168.20.11; 
+    127.0.0.1;};
+    also-notify { 192.168.20.11; };
 };
 
 // Zona inversa para la red 192.168.20.0/24
@@ -27,5 +31,8 @@ zone "20.168.192.in-addr.arpa" {
     file "/etc/bind/db.20.168.192";
     allow-transfer { key "transfer-key";
     192.168.20.102;
-    192.168.20.105; };
+    192.168.20.105;
+    192.168.20.11; 
+    127.0.0.1;};
+    also-notify { 192.168.20.11; };
 };

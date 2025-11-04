@@ -14,11 +14,16 @@ logging {
         severity dynamic;
     };
 
-    channel update.log {
-        file "/var/log/bind/updates.log" versions 5 size 20m;
-        severity dynamic;
+    channel xfer-in.log {
+        file "/var/log/bind/xfer-in.log" versions 3 size 10m;
+        severity info;
+    };
+    channel xfer-out.log {
+        file "/var/log/bind/xfer-out.log" versions 3 size 10m;
+        severity info;
     };
 
     category queries { query.log; };
-    category update { update.log; };
+    category xfer-in { xfer-in.log; };
+    category xfer-out { xfer-out.log; };
 };
